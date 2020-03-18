@@ -1,5 +1,5 @@
 public class MenuManager {
-public static void main(String[] args) {
+  public static void main(String[] args) {
 	System.out.println("Welcome to Review Management Menu!!");
 	System.out.println("Select one number between 1 to 7");
 	System.out.println("1. Add a subject(to review)");
@@ -9,5 +9,5 @@ public static void main(String[] args) {
 	System.out.println("5. View the time table");
 	System.out.println("6. View the calendar");
 	System.out.println("7. Exit");
-	}
+  }
 }
