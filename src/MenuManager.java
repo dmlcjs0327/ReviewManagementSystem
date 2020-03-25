@@ -35,7 +35,7 @@ public class MenuManager {
 				System.out.println("\n\n***END***\n\n");
 			}
 			else {
-				System.out.println("\n!!Select one number between 1 to 6!!\n\n");
+				System.out.println("\n!!Input an integer between 1 to 6!!\n\n");
 			}
 		}
 	}
