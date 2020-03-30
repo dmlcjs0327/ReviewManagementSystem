@@ -19,7 +19,7 @@ public class Subject {
 		System.out.println("Subject number: "+this.snum);
 		System.out.println("Subject name: "+this.sname);
 		System.out.println("Professor name : "+this.pname);
-		System.out.println("Review ranking: "+this.rrank);
+		System.out.println("Review ranking: "+this.rrank+"\n");
 	}
 
 }

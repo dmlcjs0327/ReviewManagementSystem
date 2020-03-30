@@ -40,7 +40,43 @@ public class Subjectmanager {
 		System.out.print("Subject ID(int): ");
 		int subjectId=sc.nextInt();
 		if(S.snum==subjectId) {
-			System.out.println("The Subject to be edited is "+subjectId);
+			int num=0;
+			
+			while(num!=5) {
+				System.out.println("**Subject Info Edit menu**\n");
+				System.out.println("1. Edit subject number");
+				System.out.println("2. Edit subject name");
+				System.out.println("3. Edit professor name");
+				System.out.println("4. Edit review ranking");
+				System.out.println("5. Exit\n");
+				System.out.print("Select one number(between 1 to 5): ");
+				num=sc.nextInt();
+				
+				if(num==1) {
+					System.out.print("Subject number(int): ");
+					S.snum=sc.nextInt();
+				}
+				else if(num==2) {
+					String buf=sc.nextLine();
+					System.out.print("Subject name(str): ");
+					S.sname=sc.nextLine();
+				}
+				else if(num==3) {
+					String buf=sc.nextLine();
+					System.out.print("Professor name(str): ");
+					S.pname=sc.nextLine();
+				}
+				else if(num==4) {
+					System.out.print("Review ranking(Natural num): ");
+					S.rrank=sc.nextInt();
+				}
+				else if(num==5) {
+					System.out.println("\n\n**Edit END**\n\n");
+				}
+				else {
+					System.out.println("\n!!Input an integer between 1 to 5!!\n\n");
+				}
+			}
 		}
 	}
 
@@ -56,6 +92,4 @@ public class Subjectmanager {
 			return;
 		}
 	}
-
-
 }
