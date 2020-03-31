@@ -6,7 +6,7 @@ public class MenuManager {
 		Scanner sc=new Scanner(System.in);
 		Subjectmanager SMG = new Subjectmanager(sc);	
 		int num=0;
-		
+
 		while(num!=5) {
 			System.out.println("***Welcome to Review Management Menu!!***\n");
 			System.out.println("1. Add a subject(to review)");

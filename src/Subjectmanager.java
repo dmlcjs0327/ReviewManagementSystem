@@ -11,7 +11,7 @@ public class Subjectmanager {
 		System.out.println("\n"+"***1. Add a subject(to review)***\n");
 		System.out.print("Subject number(int): ");
 		S.snum=sc.nextInt();
-		String buf=sc.nextLine();
+		sc.nextLine();
 		System.out.print("Subject name(str): ");
 		S.sname=sc.nextLine();
 		System.out.print("Professor name(str): ");
@@ -41,7 +41,7 @@ public class Subjectmanager {
 		int subjectId=sc.nextInt();
 		if(S.snum==subjectId) {
 			int num=0;
-			
+
 			while(num!=5) {
 				System.out.println("**Subject Info Edit menu**\n");
 				System.out.println("1. Edit subject number");
@@ -51,18 +51,18 @@ public class Subjectmanager {
 				System.out.println("5. Exit\n");
 				System.out.print("Select one number(between 1 to 5): ");
 				num=sc.nextInt();
-				
+
 				if(num==1) {
 					System.out.print("Subject number(int): ");
 					S.snum=sc.nextInt();
 				}
 				else if(num==2) {
-					String buf=sc.nextLine();
+					sc.nextLine();
 					System.out.print("Subject name(str): ");
 					S.sname=sc.nextLine();
 				}
 				else if(num==3) {
-					String buf=sc.nextLine();
+					sc.nextLine();
 					System.out.print("Professor name(str): ");
 					S.pname=sc.nextLine();
 				}
