@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Subject {
 	int snum;
@@ -21,5 +22,18 @@ public class Subject {
 		System.out.println("Professor name : "+this.pname);
 		System.out.println("Review ranking: "+this.rrank+"\n");
 	}
-
+	
+	public int register(ArrayList<Subject> Subjects,int subjectId) {
+		int index=-1;
+		for(int i=0;i<Subjects.size();i++) {
+			if(Subjects.get(i).snum == subjectId) {
+				index=i;
+				break;
+			}
+		}
+		if(index<0) {
+			return index;
+		}
+		return index;
+	}
 }
