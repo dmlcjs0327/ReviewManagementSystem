@@ -35,7 +35,8 @@ public class Subjectmanager {
 		}
 		else if(R.register(Subjects, subjectId)>=0) {
 			Subjects.remove(R.register(Subjects, subjectId));
-			System.out.println("The subject "+subjectId+"is deleted\n\n\n");
+			Subject.numSubjectsRegistered--;
+			System.out.println("The subject "+subjectId+" is deleted\n\n\n");
 		}
 		else {
 			System.out.println("The subject has not been registered\n\n\n");
@@ -99,6 +100,7 @@ public class Subjectmanager {
 		System.out.println("\n\n\n"+"***4. View a subject(to review)***\n");
 		//		System.out.print("Subject ID(int): ");
 		//		int subjectId=sc.nextInt();
+		System.out.println("#Registered Subjects: "+Subject.numSubjectsRegistered);
 		for(int i=0;i<Subjects.size();i++) {
 			Subjects.get(i).printInfo();
 		}

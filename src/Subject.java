@@ -5,8 +5,10 @@ public class Subject {
 	String sname;
 	String pname;
 	int rrank;
+	static int numSubjectsRegistered=-1;	//register용으로 무조건 1번 instant하기 때문
 
 	public Subject() {
+		numSubjectsRegistered++;
 	}
 
 	public Subject(int snum, String sname, String pname, int rrank) {
@@ -14,6 +16,7 @@ public class Subject {
 		this.sname=sname;
 		this.pname=pname;
 		this.rrank=rrank;
+		numSubjectsRegistered++;
 	}
 
 	public void printInfo() {
