@@ -29,7 +29,6 @@ public class Subjectmanager {
 		System.out.println("\n\n\n"+"***2. Delete a subject(to review)***\n");
 		System.out.print("Subject ID(int): ");
 		int subjectId=sc.nextInt();
-		R.register(Subjects, subjectId);
 		if(R.register(Subjects, subjectId)<0){	//등록된 ID인지 평가
 			System.out.println("The subject has not been registered\n\n\n");
 		}
@@ -48,7 +47,6 @@ public class Subjectmanager {
 		System.out.println("\n\n\n"+"***3. Edit a subject(to review)***\n");
 		System.out.print("Subject ID(int): ");
 		int subjectId=sc.nextInt();
-		R.register(Subjects, subjectId);
 		if(R.register(Subjects, subjectId)<0){		//등록된 ID인지 평가
 			System.out.println("The subject has not been registered\n\n\n");
 		}
@@ -107,7 +105,6 @@ public class Subjectmanager {
 		if(Subjects.size()==0) {
 			System.out.println("No subjects have been registered\n\n");
 		}
-
 		System.out.println("\n");
 	}
 }
