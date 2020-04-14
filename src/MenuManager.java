@@ -8,7 +8,7 @@ public class MenuManager {
 		int num=0;
 
 		while(num!=5) {
-			System.out.println("***Welcome to Review Management Menu!!***\n");
+			System.out.println("<<<  Welcome to Review Management Menu  >>>\n");
 			System.out.println("1. Add a subject(to review)");
 			System.out.println("2. Delete a subject(to review)");
 			System.out.println("3. Edit a subject(to review)");
