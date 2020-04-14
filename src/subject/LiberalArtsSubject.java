@@ -9,10 +9,8 @@ public class LiberalArtsSubject extends Subject {
 		sc.nextLine();
 		System.out.print("*Subject name(str): ");
 		this.setSname(sc.nextLine());
-		
 		System.out.print("*Professor name(str): ");
 		this.setPname(sc.nextLine());
-		
 		char answer='x';
 		while(answer!='Y'||answer!='y'||answer!='n'||answer!='N') {
 			System.out.print("Need to review?(Y/N): ");
