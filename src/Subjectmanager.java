@@ -54,7 +54,7 @@ public class Subjectmanager {
 		System.out.println("\n\n\n***2. Delete a subject(to review)***\n");
 		System.out.print("*Subject ID(int): ");
 		int subjectId=sc.nextInt();
-		if(R.register(Subjects, subjectId)<0){	//등록된 ID인지 평가
+		if(R.register(Subjects, subjectId)<0){	// 등록된 ID인지 평가
 			System.out.println("The subject has not been registered\n\n\n");
 		}
 		else if(R.register(Subjects, subjectId)>=0) {
