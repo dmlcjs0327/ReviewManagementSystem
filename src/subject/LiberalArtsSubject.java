@@ -3,6 +3,10 @@ package subject;
 import java.util.Scanner;
 
 public class LiberalArtsSubject extends Subject {
+	
+	public LiberalArtsSubject(SubjectKind kind) {
+		super(kind);
+	}
 	public void getUserInput(Scanner sc) {
 		System.out.print("*Subject id(int): ");
 		this.setSnum(sc.nextInt());
@@ -13,7 +17,7 @@ public class LiberalArtsSubject extends Subject {
 		this.setPname(sc.nextLine());
 		char answer='x';
 		while(answer!='Y'||answer!='y'||answer!='n'||answer!='N') {
-			System.out.print("Need to review?(Y/N): ");
+			System.out.print("Need to review it soon?(Y/N): ");
 			answer=sc.next().charAt(0);
 			if(answer=='Y' || answer=='y') {
 				System.out.print("*Review ranking(Natural num): ");
@@ -21,7 +25,7 @@ public class LiberalArtsSubject extends Subject {
 				break;
 			}
 			else if(answer=='N' || answer=='n') {
-				this.setRrank(Integer.MIN_VALUE);
+				this.setRrank(Integer.MAX_VALUE);
 				break;
 			}
 			else {

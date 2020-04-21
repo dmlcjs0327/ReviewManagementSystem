@@ -12,8 +12,20 @@ public class Subject {
 
 	public Subject() {
 	}
+	
+	public Subject(SubjectKind kind) {
+		this.kind=kind;
+	}
 
 	public Subject(int snum, String sname, String pname, int rrank) {
+		this.snum=snum;
+		this.sname=sname;
+		this.pname=pname;
+		this.rrank=rrank;
+	}
+	
+	public Subject(SubjectKind kind, int snum, String sname, String pname, int rrank) {
+		this.kind=kind;
 		this.snum=snum;
 		this.sname=sname;
 		this.pname=pname;
@@ -59,8 +71,22 @@ public class Subject {
 	public void setRrank(int rrank) {
 		this.rrank = rrank;
 	}
-
+	
+	
 	public void printInfo() {
+		String skind="none";
+		switch(this.kind) {
+		case Major:
+			skind="Major";
+			break;
+		case LiberalArts:
+			skind="Liberal Arts";
+			break;
+		case SelfStudy:
+			skind="Self Study";
+		default:
+		}
+		System.out.println("Subject kind: "+skind);
 		System.out.println("Subject number: "+this.snum);
 		System.out.println("Subject name: "+this.sname);
 		System.out.println("Professor name : "+this.pname);

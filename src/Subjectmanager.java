@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import subject.LiberalArtsSubject;
+import subject.SelfStudySubject;
 import subject.Subject;
+import subject.SubjectKind;
 
 public class Subjectmanager {
 	ArrayList<Subject> Subjects=new ArrayList<Subject>();
@@ -15,12 +16,13 @@ public class Subjectmanager {
 	public void addSubject() {
 		System.out.println("\n\n\n"+"***1. Add a subject(to review)***\n");
 		int kind=0;
-		Subject S=null;	// kind==1, kind==2가 동적선언이라 초기화 안 하면 subjects.add 에러
+		Subject S=null;	// kind가 동적선언이라 초기화 안 하면 subjects.add 에러
 		System.out.println("*Select Subject kind: ");
 		System.out.println(" 1. for Major");
 		System.out.println(" 2. for Liberal arts");
-		while(kind!=1 && kind !=2) {
-			System.out.print(" kind(1 or 2): ");
+		System.out.println(" 3. for Self study");
+		while(kind!=1 && kind !=2 && kind !=3) {
+			System.out.print(" kind(1~3): ");
 			kind=sc.nextInt();
 			sc.nextLine();
 			if (kind==1) {
@@ -29,15 +31,22 @@ public class Subjectmanager {
 				break;
 			}
 			else if (kind==2) {
-				S=new LiberalArtsSubject();	//실행할 때마다 새로운 객체 생성
+				S=new LiberalArtsSubject(SubjectKind.LiberalArts);	//실행할 때마다 새로운 객체 생성
+				S.getUserInput(sc);
+				break;
+			}
+			else if (kind==3) {
+				S=new SelfStudySubject(SubjectKind.SelfStudy);	//실행할 때마다 새로운 객체 생성
 				S.getUserInput(sc);
 				break;
 			}
 			else {
-				System.out.println("\n!!Input an integer between 1 or 2!!\n\n");
+				System.out.println("\n!!Input an integer between 1~3!!\n");
 			}
 		}
-		System.out.println(S.getSnum()+"/" +S.getSname()+ "/"+S.getPname()+"/"+S.getRrank()+" are saved\n");
+		if(kind!=3) {//self study의 메소드 자체에서 print
+			System.out.println(S.getSnum()+"/" +S.getSname()+ "/"+S.getPname()+"/"+S.getRrank()+" are saved\n");
+		}
 		Subjects.add(S);
 	}
 

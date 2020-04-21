@@ -2,5 +2,6 @@ package subject;
 
 public enum SubjectKind {
 	Major,
-	LiberalArts
+	LiberalArts,
+	SelfStudy
 }
