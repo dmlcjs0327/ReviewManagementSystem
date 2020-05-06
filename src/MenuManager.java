@@ -36,6 +36,7 @@ public class MenuManager {
 				break;
 			case 5:
 				System.out.println("\n\n***END***\n\n");
+				break;
 			default:
 				System.out.println("\n!!Input an integer between 1 to 5!!\n\n");
 			}

@@ -15,8 +15,6 @@ public class LiberalArtsSubject extends NonMajorSubject implements SubjectInput{
 		setProfessorwithYN(sc);
 	}
 	
-	
-	
 	public void printInfo() {
 		String skind= getKindString();
 		System.out.println("Subject kind: "+skind);

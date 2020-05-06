@@ -7,9 +7,8 @@ public abstract class NonMajorSubject extends Subject {
 	public NonMajorSubject(SubjectKind kind) {
 		super(kind);
 	}
-
 	public abstract void printInfo();
-
+	
 	public abstract void getUserInput(Scanner sc);
 	
 	public void setProfessorwithYN(Scanner sc) {
@@ -31,5 +30,4 @@ public abstract class NonMajorSubject extends Subject {
 			}
 		}
 	}
-
 }
