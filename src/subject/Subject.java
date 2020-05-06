@@ -1,8 +1,7 @@
 package subject;
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Subject {
+public abstract class Subject implements SubjectInput{
 
 	protected SubjectKind kind= SubjectKind.Major;
 	protected int snum;
@@ -72,8 +71,30 @@ public class Subject {
 		this.rrank = rrank;
 	}
 	
+	public abstract void printInfo();
 	
-	public void printInfo() {
+	public abstract void getUserInput(Scanner sc);
+	
+	public void setSubjectnum(Scanner sc) {
+		System.out.print("Subject number(int): ");
+		this.setSnum(sc.nextInt());
+		sc.nextLine();
+	}
+	public void setSubjectname(Scanner sc) {
+		System.out.print("Subject name(str): ");
+		this.setSname(sc.nextLine());
+	}
+	public void setProfessorname(Scanner sc) {
+		
+		System.out.print("Professor name(str): ");
+		this.setPname(sc.nextLine());
+	}
+	public void setReviewranking(Scanner sc) {
+		System.out.print("Review ranking(Natural num): ");
+		this.setRrank(sc.nextInt());
+	}
+	
+	public String getKindString() {
 		String skind="none";
 		switch(this.kind) {
 		case Major:
@@ -86,38 +107,6 @@ public class Subject {
 			skind="Self Study";
 		default:
 		}
-		System.out.println("Subject kind: "+skind);
-		System.out.println("Subject number: "+this.snum);
-		System.out.println("Subject name: "+this.sname);
-		System.out.println("Professor name : "+this.pname);
-		System.out.println("Review ranking: "+this.rrank+"\n");
-	}
-
-	public int register(ArrayList<Subject> Subjects,int subjectId) {
-		int index=-1;
-		for(int i=0;i<Subjects.size();i++) {
-			if(Subjects.get(i).snum == subjectId) {
-				index=i;
-				break;
-			}
-		}
-		if(index<0) {
-			return index;
-		}
-		return index;
-	}
-	
-	public void getUserInput(Scanner sc) {
-		System.out.print("*Subject id(int): ");
-		this.setSnum(sc.nextInt());
-		sc.nextLine();
-		System.out.print("*Subject name(str): ");
-		this.setSname(sc.nextLine());
-		
-		System.out.print("*Professor name(str): ");
-		this.setPname(sc.nextLine());
-		
-		System.out.print("*Review ranking(Natural num): ");
-		this.setRrank(sc.nextInt());
+		return skind;
 	}
 }
