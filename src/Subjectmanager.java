@@ -17,28 +17,38 @@ public class Subjectmanager {
 		System.out.println("\n\n"+"***1. Add a subject(to review)***\n");
 		int kind=0;
 		SubjectInput S=null;	// kind가 동적선언이라 초기화 안 하면 subjects.add 에러
-		selectKind();
-		while(kind!=1 && kind !=2 && kind !=3) {
-			System.out.print(" kind(1~3): ");
-			kind=sc.nextInt();
-			sc.nextLine();
-			if (kind==1) {
-				S=new MajorSubject(SubjectKind.Major);	//실행할 때마다 새로운 객체 생성
-				S.getUserInput(sc);
-				break;
+		while(kind<1 || kind>3) {
+			try {
+				ShowKind();
+				System.out.print(" kind(1~3): ");
+				kind=sc.nextInt();
+				sc.nextLine();
+				if (kind==1) {
+					S=new MajorSubject(SubjectKind.Major);	//실행할 때마다 새로운 객체 생성
+					S.getUserInput(sc);
+					break;
+				}
+				else if (kind==2) {
+					S=new LiberalArtsSubject(SubjectKind.LiberalArts);	//실행할 때마다 새로운 객체 생성
+					S.getUserInput(sc);
+					break;
+				}
+				else if (kind==3) {
+					S=new SelfStudySubject(SubjectKind.SelfStudy);	//실행할 때마다 새로운 객체 생성
+					S.getUserInput(sc);
+					break;
+				}
+				else {
+					System.out.println("\n!!Input an integer between 1~3!!\n");
+				}
 			}
-			else if (kind==2) {
-				S=new LiberalArtsSubject(SubjectKind.LiberalArts);	//실행할 때마다 새로운 객체 생성
-				S.getUserInput(sc);
-				break;
-			}
-			else if (kind==3) {
-				S=new SelfStudySubject(SubjectKind.SelfStudy);	//실행할 때마다 새로운 객체 생성
-				S.getUserInput(sc);
-				break;
-			}
-			else {
-				System.out.println("\n!!Input an integer between 1~3!!\n");
+			catch(Exception e) {
+				System.out.println("\n!!You don't input integer!!");
+				System.out.println("!!Input an integer between 1 to 3!!\n\n");
+				if(sc.hasNext()) {
+					sc.next();
+				}
+				kind=0;
 			}
 		}
 		if(kind!=3) {//self study의 메소드 자체에서 print
@@ -140,7 +150,7 @@ public class Subjectmanager {
 		}
 		return index;
 	}
-	public void selectKind() {
+	public void ShowKind() {
 		System.out.println("*Select Subject kind: ");
 		System.out.println(" 1. for Major");
 		System.out.println(" 2. for Liberal arts");

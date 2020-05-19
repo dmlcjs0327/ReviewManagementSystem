@@ -2,6 +2,8 @@ package subject;
 
 import java.util.Scanner;
 
+import exceptions.RankingException;
+
 public interface SubjectInput {
 	public int getSnum();
 	public void setSnum(int snum);
@@ -10,7 +12,7 @@ public interface SubjectInput {
 	public String getPname();
 	public void setPname(String pname);
 	public int getRrank();
-	public void setRrank(int rrank);
+	public void setRrank(int rrank) throws RankingException;
 	public void getUserInput(Scanner sc);
 	public void printInfo();
 	public void setSubjectnum(Scanner sc);

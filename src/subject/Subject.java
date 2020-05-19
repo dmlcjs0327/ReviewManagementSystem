@@ -1,6 +1,8 @@
 package subject;
 import java.util.Scanner;
 
+import exceptions.RankingException;
+
 public abstract class Subject implements SubjectInput{
 	protected SubjectKind kind= SubjectKind.Major;
 	protected int snum;
@@ -53,7 +55,10 @@ public abstract class Subject implements SubjectInput{
 	public int getRrank() {
 		return rrank;
 	}
-	public void setRrank(int rrank) {
+	public void setRrank(int rrank) throws RankingException{
+		if (rrank<=0) {
+			throw new RankingException();
+		}
 		this.rrank = rrank;
 	}
 	public abstract void printInfo();
@@ -71,9 +76,18 @@ public abstract class Subject implements SubjectInput{
 		System.out.print("Professor name(str): ");
 		this.setPname(sc.nextLine());
 	}
-	public void setReviewranking(Scanner sc) {
-		System.out.print("Review ranking(Natural num): ");
-		this.setRrank(sc.nextInt());
+	public void setReviewranking(Scanner sc){
+		int rank=0;
+		while(rank<=0) {
+			System.out.print("Review ranking(Natural num): ");
+			rank=sc.nextInt();
+			try {
+				this.setRrank(rank);
+			} catch (RankingException e) {
+				System.out.println("\n!!Input an natural number!!\n");
+				rank=0;
+			}
+		}
 	}
 	public String getKindString() {
 		String skind="none";
