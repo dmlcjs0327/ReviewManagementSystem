@@ -2,7 +2,7 @@ package subject;
 
 import java.util.Scanner;
 
-import exceptions.RankingException;
+import exceptions.RankException;
 
 public abstract class NonMajorSubject extends Subject {
 
@@ -26,7 +26,7 @@ public abstract class NonMajorSubject extends Subject {
 						this.setRrank(sc.nextInt());
 						break;
 					}
-					catch(RankingException e) {
+					catch(RankException e) {
 						System.out.println("\n!!Input an natural number!!\n");
 					}
 				}
@@ -36,7 +36,7 @@ public abstract class NonMajorSubject extends Subject {
 			else if(answer=='N' || answer=='n') {
 				try {
 					this.setRrank(Integer.MAX_VALUE);
-				} catch (RankingException e) {
+				} catch (RankException e) {
 				}
 				break;
 			}

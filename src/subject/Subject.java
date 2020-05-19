@@ -1,7 +1,7 @@
 package subject;
 import java.util.Scanner;
 
-import exceptions.RankingException;
+import exceptions.RankException;
 
 public abstract class Subject implements SubjectInput{
 	protected SubjectKind kind= SubjectKind.Major;
@@ -55,9 +55,9 @@ public abstract class Subject implements SubjectInput{
 	public int getRrank() {
 		return rrank;
 	}
-	public void setRrank(int rrank) throws RankingException{
+	public void setRrank(int rrank) throws RankException{
 		if (rrank<=0) {
-			throw new RankingException();
+			throw new RankException();
 		}
 		this.rrank = rrank;
 	}
@@ -83,7 +83,7 @@ public abstract class Subject implements SubjectInput{
 			rank=sc.nextInt();
 			try {
 				this.setRrank(rank);
-			} catch (RankingException e) {
+			} catch (RankException e) {
 				System.out.println("\n!!Input an natural number!!\n");
 				rank=0;
 			}
