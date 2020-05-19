@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import exceptions.RankException;
 
-
 public interface SubjectInput {
 	public int getSnum();
 	public void setSnum(int snum);
