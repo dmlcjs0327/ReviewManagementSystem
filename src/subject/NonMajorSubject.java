@@ -1,7 +1,6 @@
 package subject;
 
 import java.util.Scanner;
-
 import exceptions.RankException;
 
 public abstract class NonMajorSubject extends Subject {
@@ -44,6 +43,5 @@ public abstract class NonMajorSubject extends Subject {
 				System.out.println("\n!!Input Y/N!!");
 			}
 		}
-
 	}
 }

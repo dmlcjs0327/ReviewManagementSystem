@@ -1,9 +1,14 @@
 package subject;
+import java.io.Serializable;
 import java.util.Scanner;
-
 import exceptions.RankException;
 
-public abstract class Subject implements SubjectInput{
+public abstract class Subject implements SubjectInput, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6825797499506591253L;
+	
 	protected SubjectKind kind= SubjectKind.Major;
 	protected int snum;
 	protected String sname;

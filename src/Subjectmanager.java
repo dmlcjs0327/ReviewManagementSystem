@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import subject.LiberalArtsSubject;
@@ -6,9 +7,14 @@ import subject.SelfStudySubject;
 import subject.SubjectInput;
 import subject.SubjectKind;
 
-public class Subjectmanager {
+public class Subjectmanager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2662183190779295775L;
+	
 	ArrayList<SubjectInput> Subjects=new ArrayList<SubjectInput>();
-	Scanner sc;
+	transient Scanner sc;
 
 	Subjectmanager(Scanner sc){
 		this.sc=sc;

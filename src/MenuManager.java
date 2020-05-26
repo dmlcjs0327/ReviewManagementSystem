@@ -1,7 +1,27 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import log.Eventlogger;
+
 public class MenuManager {
+	static Eventlogger logger= new Eventlogger("log.txt");
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		Subjectmanager SMG = getObject("subjectmanager.ser");
+		if(SMG==null) {
+			SMG=new Subjectmanager(sc);
+		}
+		selectMenu(sc,SMG);
+		putObject(SMG,"studentmanager.ser");
+	}
 
 	public static void selectMenu(Scanner sc, Subjectmanager SMG) {
 		int num=0;
@@ -13,15 +33,19 @@ public class MenuManager {
 				switch(num) {
 				case 1:
 					SMG.addSubject();
+					logger.log("add a subject");
 					break;
 				case 2:
 					SMG.deleteSubject();
+					logger.log("delete a subject");
 					break;
 				case 3:
 					SMG.editSubject();
+					logger.log("edit a subject");
 					break;
 				case 4:
 					SMG.viewSubjects();
+					logger.log("view a subject");
 					break;
 				case 5:
 					System.out.println("\n\n***END***\n\n");
@@ -51,9 +75,41 @@ public class MenuManager {
 		System.out.print("Select one number(between 1 to 5): ");
 	}
 	
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		Subjectmanager SMG = new Subjectmanager(sc);	
-		selectMenu(sc,SMG);
+	public static Subjectmanager getObject(String filename) {
+		Subjectmanager SMG = null;
+		
+		try {
+			FileInputStream file = new FileInputStream(filename);
+			ObjectInputStream in = new ObjectInputStream(file);
+			SMG=(Subjectmanager)in.readObject();
+			in.close();
+			file.close();
+		} 
+		catch (FileNotFoundException e) {
+			return SMG;
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		} 
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return SMG;
+	}
+	
+	public static void putObject(Subjectmanager SMG, String filename) {
+		try {
+			FileOutputStream file = new FileOutputStream(filename);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			out.writeObject(SMG);
+			out.close();
+			file.close();
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		} 
 	}
 }

@@ -1,7 +1,6 @@
 package subject;
 
 import java.util.Scanner;
-
 import exceptions.RankException;
 
 public interface SubjectInput {
