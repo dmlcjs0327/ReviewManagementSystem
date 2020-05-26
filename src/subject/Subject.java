@@ -8,7 +8,7 @@ public abstract class Subject implements SubjectInput, Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -6825797499506591253L;
-	
+
 	protected SubjectKind kind= SubjectKind.Major;
 	protected int snum;
 	protected String sname;

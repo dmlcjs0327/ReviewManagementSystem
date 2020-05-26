@@ -12,7 +12,7 @@ public class Subjectmanager implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -2662183190779295775L;
-	
+
 	ArrayList<SubjectInput> Subjects=new ArrayList<SubjectInput>();
 	transient Scanner sc;
 
@@ -67,7 +67,7 @@ public class Subjectmanager implements Serializable{
 		System.out.println("\n\n***2. Delete a subject(to review)***\n");
 		System.out.print("*Subject ID(int): ");
 		int subjectId=sc.nextInt();
-		
+
 		switch(register(Subjects, subjectId)) {// 등록된 ID인지 평가
 		case -1:
 			System.out.println("The subject has not been registered\n\n");
@@ -93,7 +93,7 @@ public class Subjectmanager implements Serializable{
 					while(num!=5) {
 						showEditMenu();
 						num=sc.nextInt();
-						
+
 						switch(num) {
 						case 1:
 							S.setSubjectnum(sc);
@@ -132,7 +132,7 @@ public class Subjectmanager implements Serializable{
 		}
 		System.out.println("\n");
 	}
-	
+
 	//보조 메서드
 	public void showEditMenu() {
 		System.out.println("\n*Subject Info Edit menu*\n");

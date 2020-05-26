@@ -4,16 +4,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import log.Eventlogger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import log.Eventlogger;
-
 public class MenuManager {
 	static Eventlogger logger= new Eventlogger("log.txt");
-	
+
 	public static void main(String[] args) {
-		
+
 		Scanner sc=new Scanner(System.in);
 		Subjectmanager SMG = getObject("subjectmanager.ser");
 		if(SMG==null) {
@@ -64,7 +63,7 @@ public class MenuManager {
 			}
 		}
 	}
-	
+
 	public static void showmenu() {
 		System.out.println("<<<  Welcome to Review Management Menu  >>>\n");
 		System.out.println("1. Add a subject(to review)");
@@ -74,10 +73,10 @@ public class MenuManager {
 		System.out.println("5. Exit");
 		System.out.print("Select one number(between 1 to 5): ");
 	}
-	
+
 	public static Subjectmanager getObject(String filename) {
 		Subjectmanager SMG = null;
-		
+
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
@@ -96,7 +95,7 @@ public class MenuManager {
 		}
 		return SMG;
 	}
-	
+
 	public static void putObject(Subjectmanager SMG, String filename) {
 		try {
 			FileOutputStream file = new FileOutputStream(filename);

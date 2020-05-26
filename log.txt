@@ -1,0 +1,4 @@
+5월 26, 2020 2:24:45 오후 log.Eventlogger log
+정보: add a subject
+5월 26, 2020 2:24:50 오후 log.Eventlogger log
+정보: view a subject
