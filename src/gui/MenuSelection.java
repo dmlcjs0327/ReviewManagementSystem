@@ -1,16 +1,22 @@
 package gui;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MenuSelection extends JFrame{
-	public MenuSelection() {
-		this.setSize(300,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+import listeners.ButtonAddListener;
+import listeners.ButtonViewListener;
+
+public class MenuSelection extends JPanel{
+	
+	WindowFrame frame;
+	
+	public MenuSelection(WindowFrame frame) {
+		this.frame=frame;
+		
+		this.setLayout(new BorderLayout());
+
 		
 		JPanel p1=new JPanel();
 		JPanel p2=new JPanel();
@@ -22,6 +28,9 @@ public class MenuSelection extends JFrame{
 		JButton b4=new JButton("view a subject");
 		JButton b5=new JButton("exit program");
 		
+		b1.addActionListener(new ButtonAddListener(frame));
+		b4.addActionListener(new ButtonViewListener(frame));
+		
 		p1.add(l1);
 		p2.add(b1);
 		p2.add(b2);
@@ -29,8 +38,8 @@ public class MenuSelection extends JFrame{
 		p2.add(b4);
 		p2.add(b5);
 		
-		this.add(p1,BorderLayout.NORTH);//패널에 안 넣고 바로 레이블을 넣으면 좌측부터 입력
+		this.add(p1,BorderLayout.NORTH);
 		this.add(p2,BorderLayout.CENTER);
-		this.setVisible(true);
+
 	}
 }
