@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,8 @@ import java.io.ObjectOutputStream;
 import log.Eventlogger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import gui.WindowFrame;
 
 public class MenuManager {
 	static Eventlogger logger= new Eventlogger("log.txt");
@@ -18,8 +21,9 @@ public class MenuManager {
 		if(SMG==null) {
 			SMG=new Subjectmanager(sc);
 		}
+		WindowFrame frame=new WindowFrame(SMG);
 		selectMenu(sc,SMG);
-		putObject(SMG,"studentmanager.ser");
+		putObject(SMG,"subjectmanager.ser");
 	}
 
 	public static void selectMenu(Scanner sc, Subjectmanager SMG) {
@@ -83,6 +87,7 @@ public class MenuManager {
 			SMG=(Subjectmanager)in.readObject();
 			in.close();
 			file.close();
+			System.out.println("[reading success]\n");
 		} 
 		catch (FileNotFoundException e) {
 			return SMG;
@@ -103,6 +108,7 @@ public class MenuManager {
 			out.writeObject(SMG);
 			out.close();
 			file.close();
+			System.out.println("[writing success]");
 		} 
 		catch (FileNotFoundException e) {
 			e.printStackTrace();

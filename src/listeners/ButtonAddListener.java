@@ -22,5 +22,4 @@ public class ButtonAddListener implements ActionListener {
 		SubjectAdder viewer=frame.getSd();
 		frame.setupPanel(viewer);
 	}
-
 }

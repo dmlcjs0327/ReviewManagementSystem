@@ -1,9 +1,11 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import subject.LiberalArtsSubject;
 import subject.MajorSubject;
 import subject.SelfStudySubject;
+import subject.Subject;
 import subject.SubjectInput;
 import subject.SubjectKind;
 
@@ -83,7 +85,7 @@ public class Subjectmanager implements Serializable{
 		System.out.print("*Subject ID(int): ");
 		int subjectId=sc.nextInt();
 		if(register(Subjects, subjectId)<0){		//등록된 ID인지 평가
-			System.out.println("The subject has not been registered\n\n");
+			System.out.println("The subject has not been registered\n");
 		}
 		else {
 			for(int i=0;i<Subjects.size();i++) {
@@ -131,6 +133,13 @@ public class Subjectmanager implements Serializable{
 			System.out.println("No subjects have been registered\n\n");
 		}
 		System.out.println("\n");
+	}
+	
+	public int size() {
+		return Subjects.size();
+	}
+	public SubjectInput get(int index) {
+		return (Subject) Subjects.get(index);
 	}
 
 	//보조 메서드

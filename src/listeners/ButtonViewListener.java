@@ -22,5 +22,4 @@ public class ButtonViewListener implements ActionListener {
 		SubjectViewer viewer=frame.getSv();
 		frame.setupPanel(viewer);
 	}
-
 }

@@ -1,7 +1,6 @@
 package gui;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -45,7 +44,6 @@ public class SubjectAdder extends JPanel{
 		p1.add(new JButton("cancle"));
 
 		SpringUtilities.makeCompactGrid(p1,5,2,6,6,6,6);
-
 
 		this.add(p1);
 		this.setVisible(true);

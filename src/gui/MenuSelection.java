@@ -17,7 +17,6 @@ public class MenuSelection extends JPanel{
 		
 		this.setLayout(new BorderLayout());
 
-		
 		JPanel p1=new JPanel();
 		JPanel p2=new JPanel();
 		JLabel l1=new JLabel("Menu Selection");
@@ -40,6 +39,5 @@ public class MenuSelection extends JPanel{
 		
 		this.add(p1,BorderLayout.NORTH);
 		this.add(p2,BorderLayout.CENTER);
-
 	}
 }
